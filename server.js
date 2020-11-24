@@ -3,7 +3,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -32,6 +32,8 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
 	console.log(
-		`App running on port ${PORT}! \nClick here >>> http://localhost:${PORT} <<< to view site.`
+		"==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+		PORT,
+		PORT
 	);
 });
