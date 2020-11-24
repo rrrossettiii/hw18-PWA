@@ -15,13 +15,20 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/budget", {
-	useNewUrlParser: true,
-	useFindAndModify: false
-});
+mongoose.connect(
+	process.env.MONGODB_URI || "mongodb://localhost/transactions",
+	{
+		useNewUrlParser: true,
+		useFindAndModify: false
+	}
+);
 
 // Routes;
 app.use(require("./routes/api.js"));
+
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "./public/index.html"));
+});
 
 app.listen(PORT, () => {
 	console.log(
