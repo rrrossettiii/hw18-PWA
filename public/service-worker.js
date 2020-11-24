@@ -1,5 +1,5 @@
-const CACHE_NAME = "budget-tracker-cache-v3";
-const DATA_CACHE_NAME = "budget-data-cache-v1";
+const CACHE_NAME = "transaction-tracker-cache-v3";
+const DATA_CACHE_NAME = "tt-data-cache-v1";
 
 const FILES_TO_CACHE = [
 	"/",
